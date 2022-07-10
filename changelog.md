@@ -8,3 +8,5 @@ All notable changes to this project will be documented in this file.
 - product list component to display card prewiew in list (according task 6).
 - product list item component to display list of products (according task 5).
 - cart list compnent to display items in cart and their total price (according task 7, 8).
+
+[0.0.1]: https://github.com/illiaZakharov/Angular-34/tree/hw1

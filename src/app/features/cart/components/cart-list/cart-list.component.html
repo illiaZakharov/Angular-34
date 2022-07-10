@@ -1,0 +1,35 @@
+<section class="list">
+    <h2 class="list__title">Cart</h2>
+
+    <div class="list__container" *ngIf="productList.length; else empty">
+        <div class="list__items">
+            <app-cart-list-item 
+                *ngFor="let product of productList; index as i; trackBy: trackByItems" 
+                (remove)="removeItemFromList(i)" 
+                [item]="product"
+            ></app-cart-list-item>
+        </div>
+
+        <aside class="total-price">
+            <h3>Total:</h3>
+            
+            <p>{{ totalPrice | currency:'USD':'symbol' }}</p>
+
+            <button 
+                mat-flat-button
+                color="primary"
+                (click)="onSubmitOrder()"
+            >
+                Submit order
+            </button>
+        </aside>
+    </div>
+</section>
+
+<ng-template #empty>
+    <article class="empty-cart">
+        <mat-icon class="empty-cart__icon">shopping_basket</mat-icon>
+        <h3>Your cart is empty :(</h3>
+        <p class="empty-cart__subtext">Looks like you haven't made your choise yet...</p>
+    </article>
+</ng-template>

@@ -1,0 +1,25 @@
+<article *ngIf="item" class="item">
+    <div class="item__header">
+        <h3 class="header__title">{{ item.name }}</h3>
+        <p class="header__category">{{ item.category }}</p>
+    </div>
+
+    <p class="item__description">{{ item.description | truncate:120 }}</p>
+
+    <div class="item__actions">
+        <span class="price" [ngClass]="{disabled: !item.isAvailable }">
+            {{ item.isAvailable ? (item.price | currency:'USD':'symbol':'1.0') : 'Out of Stock' }}
+        </span>
+
+        <div>
+            <button mat-button color="primary" type="button" (click)="onViewProduct(item.id)">
+                {{ 'View' | uppercase }}
+            </button>
+
+            <button mat-button color="primary" type="button" (click)="onAddToCart(item.id)"
+                [disabled]="!item.isAvailable">
+                {{ 'Buy' | uppercase }}
+            </button>
+        </div>
+    </div>
+</article>

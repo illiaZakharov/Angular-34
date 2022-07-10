@@ -1,0 +1,27 @@
+<section *ngIf="product;">
+    <div class="product">
+        <div class="product__img"><img [src]="product.srcImg" alt=""></div>
+
+        <article class="details">
+            <h2 class="product__title">{{ product.name }}</h2>
+            
+            <p class="product__price">
+                Category: {{ product.category }}
+            </p>
+            
+            <p class="product__price">
+                Price: {{ product.price | currency:'USD':'symbol':'1.0' }}
+                ({{ product.isAvailable ? 'In stock' : 'Out of Stock'}})
+            </p>
+
+            <button mat-flat-button color="primary" [disabled]="!product.isAvailable">
+                {{ 'Buy now' | uppercase }}
+            </button>
+        </article>
+    </div>
+
+    <article>
+        <h3>Description</h3>
+        <p>{{ product.description }}</p>
+    </article>
+</section>

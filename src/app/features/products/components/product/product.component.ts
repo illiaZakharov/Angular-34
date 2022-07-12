@@ -17,6 +17,7 @@ export class ProductComponent implements OnInit {
         private productsService: ProductsService,
         private activatedRoute: ActivatedRoute,
     ) {
+      // почему эту строчку добавили тут, а не в ngOnInit
         this.productId = Number(this.activatedRoute.snapshot.params['id']);
     }
 

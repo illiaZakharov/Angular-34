@@ -14,6 +14,9 @@ export class ProductsService {
     }
 
     getProductById(id: number): Observable<ProductModel | null> {
+      // может быть тут filter заменить на find?
+      // не надо будет добавлять [0]
+      // и для чего добавляется null?
         return of(productListMock.filter((product => product.id === id))[0] || null);
     }
 }

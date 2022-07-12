@@ -11,6 +11,7 @@ export class CartListComponent implements OnInit {
     productList: CartItemModel[] = [];
 
     get totalPrice(): number {
+      // этот код можно переместь в сервис
         return this.productList.reduce((prev, curr) => prev + curr.price, 0);
     }
 

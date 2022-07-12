@@ -18,8 +18,11 @@ export class ProductListComponent implements OnInit {
     }
 
     private loadProducts(): void {
-        this.productsService.getProducts().subscribe((prodcuts) => {
-            this.productList = prodcuts;
+      // а что по поводу отписки?
+      // у вас поток, конечно, конечный, но все же
+      // где-то надо знать что поток конечный, а где-то бесконечный
+        this.productsService.getProducts().subscribe((products) => {
+            this.productList = products;
         });
     }
 }

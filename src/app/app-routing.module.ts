@@ -9,6 +9,7 @@ const routes: Routes = [
     },
     {
         path: 'products',
+    //  почему главная страница загружается как лейзи модуль?
         loadChildren: () =>
             import('./features/products/products.module').then((m) => m.ProductsModule),
     },
